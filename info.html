@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Heizkurve Berechnung</title>
+    <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    pre { background: #f0f0f0; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Berechnung der Heizkurve</h1>
+    <p>Die Heizkurve beschreibt die Vorlauftemperatur <em>T<sub>VL</sub></em> in Abh&auml;ngigkeit von der Au&szlig;entemperatur <em>T<sub>A</sub></em>.</p>
+    <p>Eine einfache lineare Heizkurve lautet:</p>
+    <pre>T_VL = k \cdot (T_N - T_A) + T_R</pre>
+    <p>Hierbei gilt:</p>
+    <ul>
+        <li><strong>T<sub>VL</sub></strong>: ben&ouml;tigte Vorlauftemperatur</li>
+        <li><strong>T<sub>A</sub></strong>: gemessene Au&szlig;entemperatur</li>
+        <li><strong>T<sub>N</sub></strong>: Norm-Au&szlig;entemperatur (Bezugswert)</li>
+        <li><strong>T<sub>R</sub></strong>: gew&uuml;nschte Raumtemperatur</li>
+        <li><strong>k</strong>: Steigung der Heizkurve</li>
+    </ul>
+    <p>Die Steigung <strong>k</strong> bestimmt, wie stark die Vorlauftemperatur auf &Auml;nderungen der Au&szlig;entemperatur reagiert:</p>
+    <pre>k = \frac{T_{VL,max} - T_{R}}{T_{N} - T_{A,max}}</pre>
+    <p>Mit:</p>
+    <ul>
+        <li><strong>T<sub>VL,max</sub></strong>: maximale Vorlauftemperatur (bei Norm-Au&szlig;entemperatur)</li>
+        <li><strong>T<sub>A,max</sub></strong>: maximale Au&szlig;entemperatur, bei der die Heizung noch l&auml;uft</li>
+    </ul>
+    <p>So l&auml;sst sich die Heizkurve an die individuellen Gegebenheiten des Geb&auml;udes anpassen.</p>
+    <p><a href="index.html">Zur&uuml;ck</a></p>
+</body>
+</html>
