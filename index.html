@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Heizkurve Rechner</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin-top: 10px; }
+    input[type=number] { width: 100px; margin-left: 10px; }
+    .result { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Heizkurve Rechner</h1>
+  <label>Raumsolltemperatur RT (°C):
+    <input type="number" id="roomTemp" value="22" />
+  </label>
+  <label>Auslegung AT (°C):
+    <input type="number" id="designOutsideTemp" value="-6" />
+  </label>
+  <label>Maximale Rücklauftemperatur RL (°C):
+    <input type="number" id="maxReturnTemp" value="45" />
+  </label>
+  <label>Aktuelle Außentemperatur AT (°C):
+    <input type="number" id="currentOutsideTemp" value="6" />
+  </label>
+  <button id="calcBtn">Berechnen</button>
+  <div class="result">
+    <p>Heizkurven-Steigung: <span id="slope">--</span> K/K</p>
+    <p>Aktuelle Rücklauftemperatur: <span id="returnTemp">--</span> °C</p>
+  </div>
+  <script>
+  document.getElementById('calcBtn').addEventListener('click', function() {
+    var roomTemp = parseFloat(document.getElementById('roomTemp').value);
+    var designOutside = parseFloat(document.getElementById('designOutsideTemp').value);
+    var maxReturn = parseFloat(document.getElementById('maxReturnTemp').value);
+    var currentOutside = parseFloat(document.getElementById('currentOutsideTemp').value);
+    var slope = (maxReturn - roomTemp) / (20 - designOutside);
+    slope = Math.round(slope * 1000) / 1000;
+    var returnTempCurrent = roomTemp + slope * (20 - currentOutside);
+    returnTempCurrent = Math.round(returnTempCurrent * 100) / 100;
+    document.getElementById('slope').textContent = slope;
+    document.getElementById('returnTemp').textContent = returnTempCurrent;
+  });
+  </script>
+</body>
+</html>
